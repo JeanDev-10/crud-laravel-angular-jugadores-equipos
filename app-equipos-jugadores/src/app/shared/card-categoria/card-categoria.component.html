@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12 col-md-8 mx-auto my-2"  *ngFor="let e of equipos">
+    <div class="card">
+      <div class="card-header">
+        <h5>nombre: <span class="text-primary"> {{e.nEquipo}}</span> </h5>
+        <h6>director: {{e.nDT}} </h6>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Posicion</th>
+              <th scope="col">Numero de camisa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let j of e.jugadores">
+              <th scope="row">{{ j.id }}</th>
+              <td>{{ j.nJugador }}</td>
+              <td>{{ j.posicion }}</td>
+              <td>{{ j.numCamisa }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

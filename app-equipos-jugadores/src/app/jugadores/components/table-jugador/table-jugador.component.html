@@ -1,0 +1,25 @@
+<button routerLink="/jugadores/create" class="btn btn-outline-primary">Crear Jugador</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Posicion</th>
+      <th scope="col">Numero de camisa</th>
+      <th scope="col">Equipo que pertenece</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of jugadores">
+      <th scope="row"> {{e.id}} </th>
+      <td> {{e.nombre_jugador}} </td>
+      <td> {{e.posicion_jugador}} </td>
+      <td> {{e.numero_camisa}} </td>
+      <td> {{e.nombre_equipo}} </td>
+      <td> <button class="btn btn-outline-primary" (click)="onUpdate(e.id)">editar</button>
+      <button class="btn btn-outline-danger" (click)="onDelete(e.id)">eliminar</button> </td>
+    </tr>
+
+  </tbody>
+</table>

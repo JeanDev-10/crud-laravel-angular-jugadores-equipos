@@ -1,0 +1,21 @@
+<button routerLink="/equipos/create" class="btn btn-outline-primary">Crear Equipo</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Director tecnico</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of equipos">
+      <th scope="row"> {{e.id}} </th>
+      <td> {{e.nEquipo}} </td>
+      <td> {{e.nDT}} </td>
+      <td> <button class="btn btn-outline-primary" (click)="onUpdate(e.id)">editar</button>
+      <button class="btn btn-outline-danger" (click)="onDelete(e.id)">eliminar</button> </td>
+    </tr>
+
+  </tbody>
+</table>

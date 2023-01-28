@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-6 col-12 mx-auto">
+    <form [formGroup]="formCreateJugador">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre de Jugador </label>
+        <input type="text" class="form-control" id="nombre" formControlName="nJugador">
+        <div
+        *ngIf="formCreateJugador.get('nJugador')?.errors?.['required']"
+        class="form-text text-danger"
+      >
+        Debe llenar el campo
+      </div>
+        <div
+        *ngIf="formCreateJugador.get('nJugador')?.errors?.['minlength']"
+        class="form-text text-danger"
+      >
+        Minimo 5 caracteres
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="nombreD" class="form-label">Numero de camisa </label>
+        <input type="text" class="form-control" id="nombreD" formControlName="numCamisa">
+        <div
+        *ngIf="formCreateJugador.get('numCamisa')?.errors?.['required']"
+        class="form-text text-danger"
+      >
+        Debe llenar el campo
+      </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Posicion </label>
+        <input type="text" class="form-control" formControlName="posicion">
+        <div
+        *ngIf="formCreateJugador.get('posicion')?.errors?.['required']"
+        class="form-text text-danger"
+      >
+        Debe llenar el campo
+      </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Equipo </label>
+        <select name="" id="" formControlName="equipo_id" >
+          <option *ngFor="let e of equipos" value={{e.id}}> {{e.nEquipo}} </option>
+        </select>
+        <div
+        *ngIf="formCreateJugador.get('posicion')?.errors?.['required']"
+        class="form-text text-danger"
+      >
+        Debe llenar el campo
+      </div>
+      </div>
+
+      <button type="button" (click)="enviarData()" class="btn btn-info" [disabled]="!formCreateJugador.valid" >Enviar</button>
+      {{formCreateJugador.value|json}}
+    </form>
+  </div>
+</div>

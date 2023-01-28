@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6 col-12 mx-auto">
+    <form [formGroup]="formCreateEquipo">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre de Equipo </label>
+        <input type="text" class="form-control" id="nombre" formControlName="nEquipo">
+        <div
+        *ngIf="formCreateEquipo.get('nEquipo')?.errors?.['required']"
+        class="form-text text-danger"
+      >
+        Debe llenar el campo
+      </div>
+        <div
+        *ngIf="formCreateEquipo.get('nEquipo')?.errors?.['minlength']"
+        class="form-text text-danger"
+      >
+        Minimo 5 caracteres
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="nombreD" class="form-label">Nombre de Director Tenico </label>
+        <input type="text" class="form-control" id="nombreD" formControlName="nDT">
+        <div
+        *ngIf="formCreateEquipo.get('nDT')?.errors?.['required']"
+        class="form-text text-danger"
+      >
+        Debe llenar el campo
+      </div>
+        <div
+        *ngIf="formCreateEquipo.get('nDT')?.errors?.['minlength']"
+        class="form-text text-danger"
+      >
+        Minimo 8 caracteres
+      </div>
+       <!--  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+      </div>
+
+      <button type="button" (click)="enviarData()" class="btn btn-info" [disabled]="!formCreateEquipo.valid" >Enviar</button>
+      {{formCreateEquipo.value|json}}
+    </form>
+  </div>
+</div>
